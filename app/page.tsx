@@ -1,132 +1,92 @@
-export default function Home() {
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from '@next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+
+const Home: NextPage = () => {
   return (
-    <section className="py-12">
-      <div className="container mx-auto px-4">
-        <div className="prose prose-blue mx-auto">
-          <h1>TailwindCSS</h1>
-          <p>Welcome to my Next.js + Tailwind CSS starter template.</p>
+    <div
+      style={inter.style}
+      className="flex min-h-screen flex-col items-center justify-center py-2"
+    >
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-          <h2>Features:</h2>
-          <ul>
-            <li>
-              Pre-configured <code>postcss.config.js</code> and{' '}
-              <code>tailwind.config.js</code>.
-            </li>
-            <li>
-              Markdown and CMS Content friendly with{' '}
-              <code>@tailwindcss/typography</code>.
-            </li>
-            <li>
-              Form styles with <code>@tailwindcss/forms</code>.
-            </li>
-            <li>
-              <code>global.css</code> that contains Tailwind CSS directives.
-            </li>
-            <li>
-              <code>{'<Layout />'}</code> component.
-            </li>
-          </ul>
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+        <h1 className="text-6xl font-bold">
+          Welcome to{' '}
+          <a className="text-blue-600" href="https://nextjs.org">
+            Next.js!
+          </a>
+        </h1>
 
-          <h2>Guides</h2>
-          <ul>
-            <li>
-              <a
-                href="https://nextjs.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Next.js
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://tailwindcss.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Tailwind CSS
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/tailwindlabs/tailwindcss-typography"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @tailwindcss/typography
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/tailwindlabs/tailwindcss-forms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @tailwindcss/forms
-              </a>
-            </li>
-          </ul>
+        <p className="mt-3 text-2xl">
+          Get started by editing{' '}
+          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
+            pages/index.tsx
+          </code>
+        </p>
 
-          <h2>Form control examples</h2>
-          <form action="" className="mb-0 space-y-6">
-            <div>
-              <label
-                htmlFor="sample-email"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Sample email input
-              </label>
-              <input
-                type="email"
-                name="sample-email"
-                id="sample-email"
-                placeholder="Enter your email address"
-              />
-            </div>
-            <div className="flex items-center">
-              <label htmlFor="sample-checkbox">
-                <input
-                  type="checkbox"
-                  name="sample-checkbox"
-                  id="sample-checkbox"
-                />
-                <span className="ml-2">A sample checkbox</span>
-              </label>
-            </div>
-            <div className="flex items-center space-x-4">
-              <label htmlFor="sample-radio-1">
-                <input type="radio" name="sample-radio" id="sample-radio-1" />
-                <span className="ml-2">A sample radio number one</span>
-              </label>
-              <label htmlFor="sample-radio-2">
-                <input type="radio" name="sample-radio" id="sample-radio-2" />
-                <span className="ml-2">A sample radio number two</span>
-              </label>
-            </div>
-          </form>
+        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+          <a
+            href="https://nextjs.org/docs"
+            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+          >
+            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
+            <p className="mt-4 text-xl">
+              Find in-depth information about Next.js features and its API.
+            </p>
+          </a>
 
-          <h2>Maintainer</h2>
-          <p>
-            This project template is maintained by{' '}
-            <a
-              href="https://earvinpiamonte.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @earvinpiamonte
-            </a>{' '}
-            and publicly available on{' '}
-            <a
-              href="https://github.com/earvinpiamonte/nextjs-tailwindcss-template"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            .
-          </p>
+          <a
+            href="https://nextjs.org/learn"
+            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+          >
+            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
+            <p className="mt-4 text-xl">
+              Learn about Next.js in an interactive course with quizzes!
+            </p>
+          </a>
+
+          <a
+            href="https://github.com/vercel/next.js/tree/canary/examples"
+            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+          >
+            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
+            <p className="mt-4 text-xl">
+              Discover and deploy boilerplate example Next.js projects.
+            </p>
+          </a>
+
+          <a
+            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+          >
+            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
+            <p className="mt-4 text-xl">
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
         </div>
-      </div>
-    </section>
+      </main>
+
+      <footer className="flex h-24 w-full items-center justify-center border-t">
+        <a
+          className="flex items-center justify-center gap-2"
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{' '}
+          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+        </a>
+      </footer>
+    </div>
   )
 }
+
+export default Home
