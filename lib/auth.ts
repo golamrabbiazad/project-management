@@ -1,7 +1,7 @@
-import { db } from './db'
 import bcrypt from 'bcrypt'
 import { jwtVerify, SignJWT } from 'jose'
 import { User } from '@prisma/client'
+import { db } from './db'
 
 export const hashPassword = (password: string) => bcrypt.hash(password, 10)
 
