@@ -51,7 +51,9 @@ export default function Button({
   size,
   ...props
 }: ButtonProps) {
-  ;<button className={buttonClasses({ intent, size, className })} {...props}>
-    {children}
-  </button>
+  return (
+    <button className={buttonClasses({ intent, size, className })} {...props}>
+      {children}
+    </button>
+  )
 }
