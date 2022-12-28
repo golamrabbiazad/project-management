@@ -3,6 +3,8 @@ import { cookies } from 'next/headers'
 import { delay } from '@/lib/async'
 import Card from './Card'
 import Button from './Button'
+import Image from 'next/image'
+import img from '@/assets/images/marketing-manager.png'
 
 async function getData() {
   await delay(5000)
@@ -31,6 +33,12 @@ export default async function Greetings() {
       <div>
         <Button size="large">Today&apos;s Schedule</Button>
       </div>
+
+      <Image
+        src={img}
+        alt="busy person on computer"
+        className="w-1/3 absolute top-[-50px] right-0"
+      />
     </Card>
   )
 }

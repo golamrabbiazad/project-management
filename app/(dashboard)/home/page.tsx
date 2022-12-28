@@ -35,7 +35,7 @@ export default async function Page() {
 
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1">
-      <div className=" h-full  items-stretch justify-center min-h-[content]">
+      <div className=" h-full items-stretch justify-center min-h-[content]">
         <div className="flex-1 grow flex">
           <Suspense fallback={<GreetingsSkeleton />}>
             {/* @ts-expect-error Server Component */}
