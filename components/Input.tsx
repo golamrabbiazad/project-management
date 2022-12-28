@@ -1,11 +1,12 @@
 import clsx from 'clsx'
 
 export interface InputProps {
-  label: string
-  name: string
-  type: 'text' | 'password'
+  placeholder: string
+  value: string
+  type?: string
   required?: boolean
   className?: string
+  onChange: (e: any) => void
 }
 
 export default function Input({ className, ...props }: InputProps) {

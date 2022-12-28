@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Card from './Card'
-import logo from '@/assests/images/logo.png'
+import logo from '@/assets/images/logo.png'
 import SidebarLink, { SidbarTypes } from './SidebarLink'
 
 const links: SidbarTypes[] = [
@@ -28,7 +28,12 @@ export default function Sidebar() {
         <Image src={logo} alt="Able logo" priority className="w-14" />
       </div>
       {links.map((link) => (
-        <SidebarLink link={link.link} label={link.label} icon={link.icon} />
+        <SidebarLink
+          key={link.label}
+          link={link.link}
+          label={link.label}
+          icon={link.icon}
+        />
       ))}
     </Card>
   )

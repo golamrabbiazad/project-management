@@ -1,3 +1,4 @@
+import '@/styles/globals.css'
 import GlassPane from '@/components/GlassPane'
 import { Inter } from '@next/font/google'
 

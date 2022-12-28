@@ -1,5 +1,7 @@
 import { User } from '@prisma/client'
 
+type CustomUser = Pick<User, 'email' | 'password' | 'firstName' | 'lastName'>
+
 const fetcher = async ({
   url,
   method,
@@ -8,7 +10,7 @@ const fetcher = async ({
 }: {
   url: string
   method: string
-  body: User
+  body: CustomUser
   json: boolean
 }) => {
   const res = await fetch(url, {
@@ -31,7 +33,7 @@ const fetcher = async ({
   }
 }
 
-export const register = async (user: User) => {
+export const register = async (user: CustomUser) => {
   return fetcher({
     url: '/api/register',
     method: 'POST',
@@ -40,7 +42,7 @@ export const register = async (user: User) => {
   })
 }
 
-export const signin = async (user: User) => {
+export const signin = async (user: CustomUser) => {
   return fetcher({
     url: '/api/signin',
     method: 'POST',
