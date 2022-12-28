@@ -23,8 +23,8 @@ const links: SidbarTypes[] = [
 
 export default function Sidebar() {
   return (
-    <Card className="">
-      <div>
+    <Card className="h-full w-40 flex items-center justify-between flex-wrap">
+      <div className="w-full flex justify-center items-center">
         <Image src={logo} alt="Able logo" priority className="w-14" />
       </div>
       {links.map((link) => (
