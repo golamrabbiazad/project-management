@@ -3,6 +3,8 @@ import clsx from 'clsx'
 import { Inter } from '@next/font/google'
 import GlassPane from '@/components/GlassPane'
 import Sidebar from '@/components/Sidebar'
+import { LogOut } from 'react-feather'
+import { signout } from '@/lib/api'
 
 const inter = Inter({
   variable: '--font-inter',

@@ -1,19 +1,21 @@
 'use client'
-import { Settings, User, Grid, Calendar, Icon } from 'react-feather'
+import { Settings, User, Grid, Calendar, LogOut } from 'react-feather'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { signout } from '@/lib/api'
 
 const icons = {
   Settings,
   User,
   Grid,
   Calendar,
+  LogOut,
 }
 
 export interface SidbarTypes {
   label: string
-  icon: 'Settings' | 'Calendar' | 'Grid' | 'User'
+  icon: 'Settings' | 'Calendar' | 'Grid' | 'User' | 'LogOut'
   link: string
 }
 
@@ -23,6 +25,10 @@ export default function SidebarLink({ link, icon }: SidbarTypes) {
 
   if (pathname === link) {
     isActive = true
+  }
+
+  if (pathname === '/signout') {
+    signout()
   }
 
   const Icon = icons[icon]

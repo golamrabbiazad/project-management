@@ -19,6 +19,11 @@ const links: SidbarTypes[] = [
     icon: 'Settings',
     link: '/settings',
   },
+  {
+    label: 'Sign Out',
+    icon: 'LogOut',
+    link: '/signout',
+  },
 ]
 
 export default function Sidebar() {
