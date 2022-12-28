@@ -8,14 +8,19 @@ import GreetingsSkeleton from '@/components/GreetingsSkeleton'
 import Greetings from '@/components/Greetings'
 import ProjectCard from '@/components/ProjectCard'
 import TasksCard from '@/components/TasksCard'
+import NewProject from '@/components/NewProject'
 
 const getData = async () => {
   await delay(2000)
   const user = await getUserFromCookie(cookies())
 
+  if (!user) {
+    throw new Error('User not found')
+  }
+
   const projects = await db.project.findMany({
     where: {
-      ownerId: user?.id,
+      ownerId: user.id,
     },
     include: {
       tasks: true,
@@ -45,7 +50,9 @@ export default async function Page() {
               </Link>
             </div>
           ))}
-          <div className="w-1/3 p-3">{/* <NewProject /> */}</div>
+          <div className="w-1/3 p-3">
+            <NewProject />
+          </div>
         </div>
         <div className="mt-6 flex-2 grow w-full flex">
           <div className="w-full">
