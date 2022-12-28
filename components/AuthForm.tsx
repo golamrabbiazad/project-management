@@ -55,12 +55,7 @@ export default function AuthForm({ mode }: { mode: 'register' | 'signin' }) {
         setFormState({ ...initial })
       }
     },
-    [
-      formState.email,
-      formState.password,
-      formState.firstName,
-      formState.lastName,
-    ]
+    [formState, mode, router]
   )
 
   const content = mode === 'register' ? registerContent : signinContent
@@ -73,6 +68,7 @@ export default function AuthForm({ mode }: { mode: 'register' | 'signin' }) {
           <p className="tex-lg text-black/25">{content.subheader}</p>
         </div>
         <form onSubmit={handleSubmit} className="py-10 w-full">
+          {error}
           {mode === 'register' && (
             <div className="flex mb-8 justify-between">
               <div className="pr-2">

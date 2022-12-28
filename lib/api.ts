@@ -1,7 +1,3 @@
-import { User } from '@prisma/client'
-
-type CustomUser = Pick<User, 'email' | 'password' | 'firstName' | 'lastName'>
-
 const fetcher = async ({
   url,
   method,
@@ -10,7 +6,7 @@ const fetcher = async ({
 }: {
   url: string
   method: string
-  body: CustomUser
+  body: any
   json: boolean
 }) => {
   const res = await fetch(url, {
@@ -33,7 +29,12 @@ const fetcher = async ({
   }
 }
 
-export const register = async (user: CustomUser) => {
+export const register = async (user: {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+}) => {
   return fetcher({
     url: '/api/register',
     method: 'POST',
@@ -42,11 +43,34 @@ export const register = async (user: CustomUser) => {
   })
 }
 
-export const signin = async (user: CustomUser) => {
+export const signin = async (user: { email: string; password: string }) => {
   return fetcher({
     url: '/api/signin',
     method: 'POST',
     body: user,
+    json: false,
+  })
+}
+
+export const createNewProject = async (name: string) => {
+  return fetcher({
+    url: '/api/project',
+    method: 'POST',
+    body: { name },
+    json: false,
+  })
+}
+
+export const createNewTask = async (
+  name: string,
+  description: string,
+  deleted: boolean,
+  status: string
+) => {
+  return fetcher({
+    url: '/api/task',
+    method: 'POST',
+    body: { name, description, deleted, status },
     json: false,
   })
 }
